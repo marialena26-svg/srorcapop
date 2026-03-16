@@ -1,19 +1,25 @@
 Package: srorcapop
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Explores long term population trends of Southern Resident killer whales
 Version: 0.1.0
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      "Maria Eleni", "Vogiatzi",
+      email = "marialena26@gmail.com",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Description: Provides a shiny app to visualize population trends of Southern 
+  Resident killer whales (Orcinus orca), including census counts of 3 pods 
+  (J,K,L), births and mortalities data, given by the Center for Whale Research 
+  (CWR) and NOAA stock assessment reports. This package allows interactive 
+  visualization of population changes over 50 years (1975-2024).
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+Imports:
+    shiny,
+    ggplot2
 URL: https://github.com/marialena26-svg/srorcapop
 BugReports: https://github.com/marialena26-svg/srorcapop/issues
 RoxygenNote: 7.3.3

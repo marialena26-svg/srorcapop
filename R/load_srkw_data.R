@@ -4,6 +4,7 @@
 #' Southern Resident killer whales
 #'
 #' @return A data frame including SRKW population data
+#' @importFrom utils read.csv
 #' @export
 load_srkw_data <- function() {
 
