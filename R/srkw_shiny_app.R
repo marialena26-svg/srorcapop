@@ -33,10 +33,18 @@ srkw_shiny_app <- function() {
   ##load data
   data <- load_srkw_data()
 
+  data$year <- as.numeric(data$year)
+  data$total_population <- as.numeric(data$total_population)
+  data$J_pod <- as.numeric(data$J_pod)
+  data$K_pod <- as.numeric(data$K_pod)
+  data$L_pod <- as.numeric(data$L_pod)
+  data$births <- as.numeric(data$births)
+  data$deaths <- as.numeric(data$deaths)
+
   ##UI
 
   ui <- bslib::page_sidebar(
-    title = "Southern Resident Orca Population",
+    title = "Southern Resident killer whale population",
 
   ##inputs
 
@@ -63,25 +71,27 @@ srkw_shiny_app <- function() {
     ),
 
   ##outputs
+shiny::div(
+  style = "padding: 20px;",
 
   ##total population
   shiny::h2("Total population"),
   shiny::textOutput("population_text"),
-  shiny::plotOutput("total_population_plot"),
+  shiny::plotOutput("total_population_plot", height = "500px", width = "100%"),
 
   ##pod population
   shiny::h2("Population per pod"),
-  shiny::plotOutput("pod_population_plot"),
+  shiny::plotOutput("pod_population_plot", height = "500px", width = "100%"),
 
   ##births and deaths
   shiny::h2("Births and mortalities"),
-  shiny::plotOutput("births_deaths_plot"),
+  shiny::plotOutput("births_deaths_plot", height = "500px", width = "100%"),
 
   ##interactive data table
   shiny::h2("Data Table"),
   DT::DTOutput("data_table")
   )
-
+)
   ##server
   server <- function(input, output, session) {
 
@@ -107,14 +117,16 @@ srkw_shiny_app <- function() {
         filtered_data(),
         ggplot2::aes(x = year, y = total_population)
       ) +
-        ggplot2::geom_line(linewidth = 1.2, color = "#0072B2") +
-        ggplot2::geom_point(size = 3, color = "#F0E442") +
+        ggplot2::geom_line(linewidth = 1.2, color = "#56B4E9", na.rm = TRUE) +
+        ggplot2::geom_point(size = 3, color = "#0072B2", na.rm = TRUE) +
         ggplot2::theme_minimal(base_size = 14) +
-        ggplot2::scale_x_continuous(labels = function(x) x) +
+        ggplot2::scale_x_continuous(breaks = seq(1975, 2024, by = 5),
+                                    labels = function(x) x) +
+        ggplot2::scale_y_continuous(breaks = seq(60, 100, by = 2)) +
         ggplot2::labs(
-          title = "Southern Resident Orca Population",
-          x = "Year",
-          y = "Population"
+          title = "SRKW annual population census",
+          x = "year",
+          y = "population"
         )
     })
 
@@ -124,12 +136,13 @@ srkw_shiny_app <- function() {
 
       p <- ggplot2::ggplot(plot_data, ggplot2::aes(x = year)) +
         ggplot2::theme_minimal(base_size = 14) +
-        ggplot2::scale_x_continuous(labels = function(x) x) +
+        ggplot2::scale_x_continuous(breaks = seq(1975, 2024, by = 5),
+                                    labels = function(x) x) +
+        ggplot2::scale_y_continuous(breaks = seq(10, 60, by = 3)) +
         ggplot2::labs(
-          title = "Population per pod",
-          subtitle = "Trends for selected pods",
-          x = "Year",
-          y = "Population",
+          title = "Trends for selected pods",
+          x = "year",
+          y = "population",
           color = "Pod"
         )
 
@@ -137,7 +150,8 @@ srkw_shiny_app <- function() {
       if ("J_pod" %in% input$pods) {
         p <- p + ggplot2::geom_line(
           ggplot2::aes(y = J_pod, color = "J pod"),
-          linewidth = 1.2
+          linewidth = 1.2,
+          na.rm = TRUE
         ) +
           ggplot2::geom_point(
             ggplot2::aes(y = J_pod, color = "J pod"),
@@ -149,7 +163,8 @@ srkw_shiny_app <- function() {
       if ("K_pod" %in% input$pods) {
         p <- p + ggplot2::geom_line(
           ggplot2::aes(y = K_pod, color = "K pod"),
-          linewidth = 1.2
+          linewidth = 1.2,
+          na.rm = TRUE
         ) +
           ggplot2::geom_point(
             ggplot2::aes(y = K_pod, color = "K pod"),
@@ -161,7 +176,8 @@ srkw_shiny_app <- function() {
       if ("L_pod" %in% input$pods) {
         p <- p + ggplot2::geom_line(
           ggplot2::aes(y = L_pod, color = "L pod"),
-          linewidth = 1.2
+          linewidth = 1.2,
+          na.rm = TRUE
         ) +
           ggplot2::geom_point(
             ggplot2::aes(y = L_pod, color = "L pod"),
@@ -171,8 +187,8 @@ srkw_shiny_app <- function() {
 
       p +
         ggplot2::scale_color_manual(values = c(
-          "J pod" = "#CC79A7",
-          "K pod" = "#28E2E5",
+          "J pod" = "#FCCDE5",
+          "K pod" = "#FDBF6f",
           "L pod" = "#A8D098"
         ))
 
@@ -183,24 +199,30 @@ srkw_shiny_app <- function() {
       ggplot2::ggplot(filtered_data(), ggplot2::aes(x = year)) +
         ggplot2::geom_line(
           ggplot2::aes(y = births, color = "Births"),
-          linewidth = 1.2
+          linewidth = 1.2,
+          na.rm = TRUE
         ) +
         ggplot2::geom_point(
           ggplot2::aes(y = births, color = "Births"),
-          size = 2.5
+          size = 2.5,
+          na.rm = TRUE
         ) +
 
         ggplot2::geom_line(
           ggplot2::aes(y = deaths, color = "Deaths"),
-          linewidth = 1.2
+          linewidth = 1.2,
+          na.rm = TRUE
         ) +
         ggplot2::geom_point(
           ggplot2::aes(y = deaths, color = "Deaths"),
-          size = 2.5
+          size = 2.5,
+          na.rm = TRUE
         ) +
 
         ggplot2::theme_minimal(base_size = 14) +
-        ggplot2::scale_x_continuous(labels = function(x) x) +
+        ggplot2::scale_x_continuous(breaks = seq(1975, 2024, by = 5),
+                                    labels = function(x) x) +
+        ggplot2::scale_y_continuous(breaks = seq(-8, 8, by = 1)) +
         ggplot2::scale_color_manual(values = c(
           "Births" = "#B79F00",
           "Deaths" = "#7A7A7A"
@@ -209,8 +231,8 @@ srkw_shiny_app <- function() {
         ggplot2::labs(
           title = "Births and mortalities over time",
           subtitle = "Annual births and deaths in the SRKW population",
-          x = "Year",
-          y = "Count",
+          x = "year",
+          y = "count",
           color = "Event"
         )
     })
