@@ -7,7 +7,7 @@
 #'@details
 #' The app uses the SRKW data set included in the package and provides
 #' interactive visualizations of population trends, births and mortality across
-#' years (1975-2024). Data provided by Center for Whale Research (CWR) and
+#' years (1975-2024). Data provided by the Center for Whale Research (CWR) and
 #' National Oceanic and Atmospheric Administration (NOAA).
 #'
 #' @references Center for Whale Research. Southern Resident Killer Whale

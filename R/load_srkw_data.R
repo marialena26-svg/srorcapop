@@ -5,7 +5,8 @@
 #' births, mortality, total population counts and J,K,L pod counts.
 #'
 #' @details
-#' The data were provided by the Center for Whale Research (CWR) and NOAA.
+#' The data were provided by the Center for Whale Research (CWR) and National
+#' Oceanic and Atmospheric Administration (NOAA).
 #'
 #' @return A data frame including SRKW population data
 #'
