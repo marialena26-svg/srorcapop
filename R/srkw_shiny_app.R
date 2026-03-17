@@ -126,7 +126,7 @@ shiny::div(
         ggplot2::labs(
           title = "SRKW annual population census",
           x = "year",
-          y = "population"
+          y = "census"
         )
     })
 
@@ -142,7 +142,7 @@ shiny::div(
         ggplot2::labs(
           title = "Trends for selected pods",
           x = "year",
-          y = "population",
+          y = "census",
           color = "Pod"
         )
 
@@ -229,8 +229,7 @@ shiny::div(
         )) +
 
         ggplot2::labs(
-          title = "Births and mortalities over time",
-          subtitle = "Annual births and deaths in the SRKW population",
+          title = "Annual births and mortalities over time",
           x = "year",
           y = "count",
           color = "Event"
