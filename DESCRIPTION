@@ -1,6 +1,6 @@
 Package: srorcapop
 Type: Package
-Title: Explores long term population trends of Southern Resident killer whales
+Title: Long term Population Trends of Southern Resident Killer whales
 Version: 0.1.0
 Authors@R: c(
     person(
