@@ -19,7 +19,10 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     shiny,
-    ggplot2
+    ggplot2,
+    bslib,
+    DT,
+    scales
 URL: https://github.com/marialena26-svg/srorcapop
 BugReports: https://github.com/marialena26-svg/srorcapop/issues
 RoxygenNote: 7.3.3

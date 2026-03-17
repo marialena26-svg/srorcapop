@@ -2,7 +2,7 @@
 % Please edit documentation in R/load_srkw_data.R
 \name{load_srkw_data}
 \alias{load_srkw_data}
-\title{Load Southern Resident killer whale population data}
+\title{Load Southern Resident Killer Whale Population Data}
 \usage{
 load_srkw_data()
 }
@@ -11,5 +11,14 @@ A data frame including SRKW population data
 }
 \description{
 Loads the data set containing yearly census counts for
-Southern Resident killer whales
+Southern Resident killer whales (Orcinus orca). The data set includes yearly
+births, mortality, total population counts and J,K,L pod counts.
+}
+\details{
+The data were provided by the Center for Whale Research (CWR) and NOAA.
+}
+\examples{
+data <- load_srkw_data()
+head(data)
+
 }

@@ -1,10 +1,18 @@
-#' Load Southern Resident killer whale population data
+#' Load Southern Resident Killer Whale Population Data
 #'
 #' Loads the data set containing yearly census counts for
-#' Southern Resident killer whales
+#' Southern Resident killer whales (Orcinus orca). The data set includes yearly
+#' births, mortality, total population counts and J,K,L pod counts.
+#'
+#' @details
+#' The data were provided by the Center for Whale Research (CWR) and NOAA.
 #'
 #' @return A data frame including SRKW population data
-#' @importFrom utils read.csv
+#'
+#' @examples
+#' data <- load_srkw_data()
+#' head(data)
+#'
 #' @export
 load_srkw_data <- function() {
 
@@ -14,6 +22,7 @@ load_srkw_data <- function() {
     package = "srorcapop"
   )
 
-  read.csv(data_path)
+  utils::read.csv(data_path)
 
 }
+
