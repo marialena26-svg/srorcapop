@@ -15,7 +15,8 @@ Southern Resident killer whales (Orcinus orca). The data set includes yearly
 births, mortality, total population counts and J,K,L pod counts.
 }
 \details{
-The data were provided by the Center for Whale Research (CWR) and NOAA.
+The data were provided by the Center for Whale Research (CWR) and National
+Oceanic and Atmospheric Administration (NOAA).
 }
 \examples{
 data <- load_srkw_data()

@@ -10,18 +10,19 @@ srkw_shiny_app()
 A shiny app launched in the browser or Viewer pane.
 }
 \description{
-Gives an interactive shiny application for exploring Southern Resident
-killer whale population trends, pod counts, births and mortality, over
-50 years.
+Gives an interactive shiny application for exploring the endangered
+Southern Resident killer whale population trends, pod counts, births and
+mortality, over 50 years.
 }
 \details{
 The app uses the SRKW data set included in the package and provides
 interactive visualizations of population trends, births and mortality across
-years (1975-2024). Data provided by Center for Whale Research (CWR) and
+years (1975-2024). Data provided by the Center for Whale Research (CWR) and
 National Oceanic and Atmospheric Administration (NOAA).
 }
 \examples{
-if (interactive()) {
+\dontrun{
+# Launch the interactive Shiny app
 srkw_shiny_app()
 }
 

@@ -1,8 +1,8 @@
 #' Southern Resident killer whale population
 #'
-#' Gives an interactive shiny application for exploring Southern Resident
-#' killer whale population trends, pod counts, births and mortality, over
-#' 50 years.
+#' Gives an interactive shiny application for exploring the endangered
+#' Southern Resident killer whale population trends, pod counts, births and
+#' mortality, over 50 years.
 #'
 #'@details
 #' The app uses the SRKW data set included in the package and provides
@@ -20,7 +20,8 @@
 #' A shiny app launched in the browser or Viewer pane.
 #'
 #'@examples
-#' if (interactive()) {
+#' \dontrun{
+#' # Launch the interactive Shiny app
 #' srkw_shiny_app()
 #' }
 #'
@@ -44,7 +45,7 @@ srkw_shiny_app <- function() {
   ##UI
 
   ui <- bslib::page_sidebar(
-    title = "Southern Resident killer whale population",
+    title = "Southern Resident Killer Whale Population",
 
   ##inputs
 
@@ -64,7 +65,7 @@ srkw_shiny_app <- function() {
   ##pod selection
       shiny::checkboxGroupInput(
         inputId = "pods",
-        label = "Select pods to display",
+        label = "select pods to display",
         choices = c("J_pod", "K_pod", "L_pod"),
         selected = c("J_pod", "K_pod", "L_pod")
       )
