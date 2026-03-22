@@ -24,6 +24,12 @@ goes to the original authors.
 # install.packages("pak")
 pak::pak("marialena26-svg/srorcapop")
 ```
+##launching the shiny app
+Run:
+
+``` r
+ srkw_shiny_app()
+```
 
 ## getting help
 
