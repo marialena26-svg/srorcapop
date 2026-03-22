@@ -224,8 +224,8 @@ shiny::div(
                                     labels = function(x) x) +
         ggplot2::scale_y_continuous(breaks = seq(-8, 8, by = 1)) +
         ggplot2::scale_color_manual(values = c(
-          "Births" = "#B79F00",
-          "Deaths" = "#7A7A7A"
+          "Births" = "#A8D5BA",
+          "Deaths" = "#F4A6A6"
         )) +
 
         ggplot2::labs(
