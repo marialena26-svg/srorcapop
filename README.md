@@ -24,7 +24,9 @@ goes to the original authors.
 # install.packages("pak")
 pak::pak("marialena26-svg/srorcapop")
 ```
-##launching the shiny app
+
+## launching the shiny app
+
 Run:
 
 ``` r
