@@ -50,7 +50,6 @@ srkw_shiny_app <- function() {
   ##inputs
 
   ##year range
-
     sidebar = bslib::sidebar(
       shiny::sliderInput(
         inputId = "year_range",
@@ -59,7 +58,7 @@ srkw_shiny_app <- function() {
         max = max(data$year, na.rm = TRUE),
         value = c(min(data$year, na.rm = TRUE), max(data$year, na.rm = TRUE)),
         step = 1,
-        sep = "" #remove commas in years
+        sep = ""
       ),
 
   ##pod selection
